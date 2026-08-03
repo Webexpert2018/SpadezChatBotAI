@@ -1,8 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
 import { Send, Bot, User, Database, Sparkles, RefreshCcw, X, MessageSquareText, Mic } from 'lucide-react';
 
-const API_BASE = import.meta.env.VITE_API_URL || '';
+const API_BASE = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? '' : 'https://spadez-chatbot-api.vercel.app');
 const API_URL = `${API_BASE}/api/chat`;
+
 
 export default function Chat() {
   const [isOpen, setIsOpen] = useState(false);

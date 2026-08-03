@@ -6,7 +6,6 @@ const API_BASE = rawBase.replace(/\/+$/, '');
 const API_URL = API_BASE.endsWith('/api') ? `${API_BASE}/chat` : `${API_BASE}/api/chat`;
 
 
-
 export default function Chat() {
   const [isOpen, setIsOpen] = useState(false);
   const [tenant, setTenant] = useState('acme'); // 'acme' or 'pf'
@@ -120,7 +119,7 @@ export default function Chat() {
   return (
     <>
       {/* Floating Chat Button */}
-      <button 
+      <button
         className={`chat-fab ${isOpen ? 'chat-fab--hidden' : ''}`}
         onClick={() => setIsOpen(true)}
         aria-label="Open chat"
@@ -154,15 +153,15 @@ export default function Chat() {
                 </button>
               </div>
             </div>
-            
+
             <div className="chat-tenant-toggle">
-              <button 
+              <button
                 className={`tenant-btn ${tenant === 'acme' ? 'tenant-btn--active' : ''}`}
                 onClick={() => { setTenant('acme'); setMessages([{ role: 'assistant', content: 'Hi! Ask me anything about Flexisure products, pricing, or support.' }]); }}
               >
                 Flexisure Docs
               </button>
-              <button 
+              <button
                 className={`tenant-btn ${tenant === 'pf' ? 'tenant-btn--active' : ''}`}
                 onClick={() => { setTenant('pf'); setMessages([{ role: 'assistant', content: 'Hello! Ask me any questions about your Premium Finance data.' }]); }}
               >
@@ -225,8 +224,8 @@ export default function Chat() {
                 disabled={loading}
                 autoFocus={isOpen}
               />
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className={`mic-button ${isListening ? 'listening' : ''}`}
                 onClick={toggleListening}
                 title="Use Voice Command"
